@@ -7,7 +7,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public final class DatabaseService {
-    private static DatabaseService instance;
+
+    private static DatabaseService instance; // część singletona
+
     @Getter
     private Configuration configuration;
 
@@ -28,7 +30,7 @@ public final class DatabaseService {
         databaseConfiguration();
     }
 
-    public static DatabaseService getInstance(){
+    public static DatabaseService getInstance(){ // część singletona
         if(instance == null){
             instance = new DatabaseService();
         }
