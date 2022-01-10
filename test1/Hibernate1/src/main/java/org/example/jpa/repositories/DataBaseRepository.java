@@ -30,12 +30,12 @@ public abstract class DataBaseRepository<T> {
         }
 
         public T getById(Long id) {
-Session session = sessionFactory.openSession();
-Transaction transaction =  session.beginTransaction();
-T entity =  entityManager.find(tClass,id);
-transaction.commit();
-session.close();
-return entity;
+          Session session = sessionFactory.openSession();
+          Transaction transaction =  session.beginTransaction();
+          T entity =  entityManager.find(tClass,id);
+          transaction.commit();
+          session.close();
+          return entity;
             }
 
         public T getByLogin(String login) {
