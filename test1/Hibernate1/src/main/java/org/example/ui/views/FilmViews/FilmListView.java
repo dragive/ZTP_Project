@@ -2,6 +2,8 @@ package org.example.ui.views.FilmViews;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.example.jpa.DefaultFilmSortingStrategy;
+import org.example.jpa.FilmSortingStrategy;
 import org.example.jpa.controllers.FilmController;
 import org.example.jpa.entities.FilmEntity;
 import org.example.jpa.entities.PracownikEntity;
@@ -20,13 +22,25 @@ import java.util.List;
 public class FilmListView extends BaseView {
     JButton addFilm = new JButton("Dodaj film");
     JLabel message = new JLabel("Wybierz film z listy:");
+    JButton jButtonForStrategy = new JButton("123");
+
+    FilmSortingStrategy filmSortingStrategy=new DefaultFilmSortingStrategy(this);
 
     public FilmListView(List<FilmEntity> filmEntityList) {
         super(new GridLayout(0,1));
 
         mountPanels();
 
-        this.add(message, BaseViewConstraint.HEADER);
+
+
+        JPanel headerMenu = new JPanel(new BorderLayout());
+        headerMenu.add(message,BorderLayout.WEST);
+
+        JPanel jpanel = new JPanel(new GridLayout(1,0));
+        jpanel.add(jButtonForStrategy);
+        headerMenu.add(jpanel);
+
+        this.add(headerMenu, BaseViewConstraint.HEADER);
         for(FilmEntity film:filmEntityList) {
             JButton temp = new JButton(film.getTitle());
             temp.addActionListener(new ActionListener() {

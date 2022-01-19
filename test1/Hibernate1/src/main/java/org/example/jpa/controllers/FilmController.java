@@ -2,13 +2,10 @@ package org.example.jpa.controllers;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.example.jpa.DefaultFilmSortingStrategy;
 import org.example.jpa.entities.FilmEntity;
-import org.example.jpa.entities.KinoEntity;
 import org.example.jpa.repositories.FilmRepository;
 import org.example.services.DatabaseService;
-import org.example.ui.views.CinemaViews.AddCinemaView;
-import org.example.ui.views.CinemaViews.CinemaListView;
-import org.example.ui.views.CinemaViews.CinemaView;
 import org.example.ui.views.ErrorFrame;
 import org.example.ui.views.FilmViews.AddFilmView;
 import org.example.ui.views.FilmViews.EditFilmView;
@@ -21,12 +18,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 
 @Slf4j
 public class FilmController {
@@ -41,10 +35,7 @@ public class FilmController {
     AddFilmView addFilmView;
     FilmView filmView;
     EditFilmView editFilmView;
-    
 
-    //models
-    FilmEntity filmEntity;
 
     JFrame frame;
 
@@ -66,7 +57,7 @@ public class FilmController {
         frame.revalidate();
         frame.repaint();
         filmListView.requestFocus();
-
+        filmListView.getJButtonForStrategy().addActionListener(new indexSortFilmListener());
         filmListView.getAddFilm().addActionListener(new indexAddFilmListener());
     }
 
@@ -125,6 +116,14 @@ public class FilmController {
         public void actionPerformed(ActionEvent e) {
             frame.remove(filmListView);
             create();
+        }
+    }
+
+    private class indexSortFilmListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            filmListView.setFilmSortingStrategy(new DefaultFilmSortingStrategy(filmListView));
         }
     }
 
