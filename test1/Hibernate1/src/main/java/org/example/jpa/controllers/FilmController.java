@@ -52,6 +52,7 @@ public class FilmController {
 
     public void index() {
         List<FilmEntity> filmEntityList = filmRepository.getAll();
+        filmEntityList = filmListView.getFilmSortingStrategy().sort(filmEntityList); // todo refactoring tego bo powinna strategia być w kontrolerze
         filmListView = new FilmListView(filmEntityList);
         frame.add(filmListView, BorderLayout.CENTER);
         frame.revalidate();

@@ -24,7 +24,7 @@ public class FilmListView extends BaseView {
     JLabel message = new JLabel("Wybierz film z listy:");
     JButton jButtonForStrategy = new JButton("123");
 
-    FilmSortingStrategy filmSortingStrategy=new DefaultFilmSortingStrategy(this);
+    FilmSortingStrategy filmSortingStrategy=new DefaultFilmSortingStrategy(this);// fixme przeniesienie do controllera
 
     public FilmListView(List<FilmEntity> filmEntityList) {
         super(new GridLayout(0,1));
