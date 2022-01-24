@@ -16,7 +16,7 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-public class PrzedmiotEntity {
+public class PrzedmiotEntity implements Cloneable {
     @Id
     @Column(name = "PRZEDMIOT_ID", nullable = false)
     private Long id;
@@ -55,4 +55,25 @@ public class PrzedmiotEntity {
     @ManyToMany(mappedBy = "przedmiotyTransakcji",cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     @ToString.Exclude
     private List<PrzedmiotTransakcjaEntity> transakcjePrzedmiotu = new ArrayList<>();
+
+    public PrzedmiotEntity() {}
+
+    public PrzedmiotEntity(PrzedmiotEntity przedmiot) {
+        this.id = przedmiot.id;
+        this.rabat = przedmiot.rabat;
+        this.nazwa = przedmiot.nazwa;
+        this.kategoria = przedmiot.kategoria;
+        this.cena = przedmiot.cena;
+        this.czyNaWynos = przedmiot.czyNaWynos;
+        this.producent = przedmiot.producent;
+        this.dataWaznosci = przedmiot.dataWaznosci;
+        this.magazynyZIloscia = przedmiot.magazynyZIloscia;
+        this.transakcjeZPrzedmiotem = przedmiot.transakcjeZPrzedmiotem;
+        this.transakcjePrzedmiotu = przedmiot.transakcjePrzedmiotu;
+    }
+
+    @Override
+    public PrzedmiotEntity clone() throws CloneNotSupportedException {
+        return new PrzedmiotEntity(this);
+    }
 }

@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Dodanie obsługi transakcji produktu!&#10;#TODO listowanie tych transakcji - robota dla Krzyśka na wieczór">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/repositories/DataBaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/repositories/DataBaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/PrzedmiotEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/PrzedmiotEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/PrzedmiotMagazynEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/PrzedmiotMagazynEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +76,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../ztp-semestr5/szachy2" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/ztp-dumper/Prototyp" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -283,6 +288,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="Ostatnie poprawki w magazynie i transakcji" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.example.jpa.entities.RezerwacjaEntity" memberName="klient" />

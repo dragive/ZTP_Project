@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
-public class PrzedmiotMagazynEntity {
+public class PrzedmiotMagazynEntity implements Cloneable{
     @EmbeddedId
     private PrzedmiotMagazynEntityId id = new PrzedmiotMagazynEntityId();
 
@@ -26,4 +26,17 @@ public class PrzedmiotMagazynEntity {
     @JoinColumn(name="Przedmiot_id",insertable = false, updatable = false)
     private PrzedmiotEntity przedmiot;
 
+    public PrzedmiotMagazynEntity() {}
+
+    public PrzedmiotMagazynEntity(PrzedmiotMagazynEntity przedmiotMagazynEntity) {
+        this.id = przedmiotMagazynEntity.id;
+        this.ilosc = przedmiotMagazynEntity.ilosc;
+        this.magazyn = przedmiotMagazynEntity.magazyn;
+        this.przedmiot = przedmiotMagazynEntity.przedmiot;
+    }
+
+    @Override
+    public PrzedmiotMagazynEntity clone() throws CloneNotSupportedException {
+        return new PrzedmiotMagazynEntity(this);
+    }
 }

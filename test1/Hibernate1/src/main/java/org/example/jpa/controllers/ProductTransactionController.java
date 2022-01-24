@@ -1,9 +1,9 @@
 package org.example.jpa.controllers;
 
+import lombok.SneakyThrows;
 import org.example.jpa.entities.*;
 import org.example.jpa.repositories.MagazynRepository;
 import org.example.jpa.repositories.ProductTransactionRepository;
-import org.example.jpa.repositories.SalaRepository;
 import org.example.services.DatabaseService;
 import org.example.ui.views.MagazynViews.MagazynItemsView;
 import org.example.ui.views.MenuPanel;
@@ -74,6 +74,7 @@ public class ProductTransactionController {
             JButton temp = new JButton(product.getPrzedmiot().getNazwa());
             if(product.getIlosc()<=0) temp.setEnabled(false);
             temp.addActionListener(new ActionListener() {
+                @SneakyThrows
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     frame.remove(magazynitems);
@@ -90,12 +91,15 @@ public class ProductTransactionController {
                             break;
                         }
                     }
-                    if(flag!=true) {
-                        PrzedmiotMagazynEntity modifiedProduct = new PrzedmiotMagazynEntity();
+                    //WYKORZYSTANIE PROTOTYPU
+                    if(!flag) {
+                        PrzedmiotMagazynEntity modifiedProduct = product.clone();
+                        modifiedProduct.setIlosc(1L);
+                        /*PrzedmiotMagazynEntity modifiedProduct = new PrzedmiotMagazynEntity();
                         modifiedProduct.setIlosc(1L);
                         modifiedProduct.setPrzedmiot(product.getPrzedmiot());
                         modifiedProduct.setMagazyn(product.getMagazyn());
-                        modifiedProduct.setId(product.getId());
+                        modifiedProduct.setId(product.getId());*/
                         transactionProducts.add(modifiedProduct);
                     }
                     index(transactionProducts,magazynProducts);
@@ -218,6 +222,7 @@ public class ProductTransactionController {
             this.magazynProducts = magazynProducts;
         }
 
+        @SneakyThrows
         @Override
         public void actionPerformed(ActionEvent e) {
             PrzedmiotTransakcjaEntity productTransaction = new PrzedmiotTransakcjaEntity();
@@ -243,11 +248,12 @@ public class ProductTransactionController {
                     break;
                 }
             }
-
+            //WYKORZYSTANIE PROTOTYPU
             productTransaction.setKontrahent(kontrahent);
             List<PrzedmiotEntity> products = new ArrayList<>();
             for(PrzedmiotMagazynEntity product: transactionProducts) {
-                products.add(product.getPrzedmiot());
+                /*products.add(product.getPrzedmiot());*/
+                products.add(product.getPrzedmiot().clone());
             }
 
             productTransaction.setPrzedmiotyTransakcji(products);
@@ -264,14 +270,16 @@ public class ProductTransactionController {
 
             //MagazynEntity magazyn = magazynProducts.get(magazynProducts.size()-1).getMagazyn();
 
+            //WYKORZYSTANIE PROTOTYPU
             List<PrzedmiotMagazynEntity> przedmiotyWMagazynie = magazyn.getPrzedmiotyWMagazynie();
             for(PrzedmiotMagazynEntity przedmiotMagazyn: przedmiotyWMagazynie) {
                 for(PrzedmiotMagazynEntity temp:magazynProducts) {
                     if(przedmiotMagazyn.getId().equals(temp.getId())) {
-                        przedmiotMagazyn.setMagazyn(temp.getMagazyn());
+                        przedmiotMagazyn = temp.clone();
+                        /*przedmiotMagazyn.setMagazyn(temp.getMagazyn());
                         przedmiotMagazyn.setPrzedmiot(temp.getPrzedmiot());
                         przedmiotMagazyn.setIlosc(temp.getIlosc());
-                        przedmiotMagazyn.setId(temp.getId());
+                        przedmiotMagazyn.setId(temp.getId());*/
                     }
                 }
             }
