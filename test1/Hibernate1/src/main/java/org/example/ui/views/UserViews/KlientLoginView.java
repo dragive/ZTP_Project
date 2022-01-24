@@ -2,8 +2,6 @@ package org.example.ui.views.UserViews;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.jpa.entities.KlientEntity;
-import org.example.ui.MainFrame;
 import org.example.ui.views.BaseView;
 
 import javax.swing.*;
