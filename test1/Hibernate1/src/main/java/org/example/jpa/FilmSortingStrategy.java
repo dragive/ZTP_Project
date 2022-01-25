@@ -1,15 +1,20 @@
 package org.example.jpa;
 
-import org.example.jpa.entities.FilmEntity;
+import lombok.Getter;
+import lombok.Setter;
+import org.example.jpa.controllers.FilmController;
 import org.example.ui.views.FilmViews.FilmListView;
 
-import java.util.List;
 
+@Getter
+@Setter
 public abstract class FilmSortingStrategy {
-  private FilmListView context;
-  public FilmSortingStrategy(FilmListView filmListView) {
+  private FilmController context;
+  public FilmSortingStrategy(FilmController filmListView) {
     this.context = filmListView;
   }
 
-  public abstract List<FilmEntity> sort(List<FilmEntity> list);
+//  public abstract List<FilmEntity> sort(List<FilmEntity> list);
+//
+  public abstract void sort();
 }
