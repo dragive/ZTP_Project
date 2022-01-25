@@ -3,6 +3,7 @@ package org.example.jpa.entities;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 import org.example.services.IMagazynObserver;
 import org.example.services.MagazynObserver;
 import org.hibernate.annotations.LazyCollection;
@@ -18,7 +19,9 @@ import java.util.List;
 @Setter
 @ToString
 public class MagazynEntity implements IMagazynEntity {
-    private List<MagazynObserver> magazynObservers;
+
+    @Transient
+    private List<IMagazynObserver> magazynObservers;
 
     public MagazynEntity() {
         magazynObservers = new ArrayList<>();
@@ -53,22 +56,24 @@ public class MagazynEntity implements IMagazynEntity {
     private List<PrzedmiotTransakcjaEntity> transakcje;
 
     @Override
-    public void attach(MagazynObserver observer) {
-
+    public void attach(IMagazynObserver observer) {
+        magazynObservers.add(observer);
     }
 
     @Override
-    public void detach(MagazynObserver observer) {
-
+    public void detach(IMagazynObserver observer) {
+        magazynObservers.remove(observer);
     }
 
     @Override
     public void notifyObservers() {
-
+        for(IMagazynObserver magazynObserver: magazynObservers) {
+            magazynObserver.notifyObserver();
+        }
     }
 
     @Override
     public List<IMagazynObserver> getObservers() {
-        return null;
+        return magazynObservers;
     }
 }

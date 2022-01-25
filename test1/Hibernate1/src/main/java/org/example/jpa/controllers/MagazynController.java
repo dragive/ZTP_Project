@@ -9,6 +9,8 @@ import org.example.jpa.entities.PrzedmiotMagazynEntity;
 import org.example.jpa.repositories.MagazynRepository;
 import org.example.jpa.repositories.PrzedmiotMagazynRepository;
 import org.example.services.DatabaseService;
+import org.example.services.IMagazynObserver;
+import org.example.services.MagazynQtyObserver;
 import org.example.ui.views.MagazynViews.*;
 import org.example.ui.views.PopUps;
 import org.hibernate.SessionFactory;
@@ -53,6 +55,15 @@ public class MagazynController {
 
     public void index() {
         List<MagazynEntity> magazynEntityList = magazynRepository.getAll();
+
+        IMagazynObserver magazynQtyObserver;
+        for(MagazynEntity magazyn: magazynEntityList) {
+            if(magazyn.getObservers().size()==0) {
+                magazynQtyObserver = new MagazynQtyObserver(magazyn,frame);
+                magazyn.attach(magazynQtyObserver);
+            }
+        }
+
         magazynListView = new MagazynListView(magazynEntityList);
         frame.add(magazynListView, BorderLayout.CENTER);
         frame.revalidate();
@@ -63,6 +74,8 @@ public class MagazynController {
     }
 
     public void details(MagazynEntity magazyn) {
+        System.out.println("DUPA");
+
         magazynView = new MagazynView(magazyn);
         frame.add(magazynView, BorderLayout.CENTER);
         frame.revalidate();
@@ -76,6 +89,16 @@ public class MagazynController {
         magazynView.getEditItemsInStorage().addActionListener(new editItemsInStorageAL(magazyn));
         magazynView.getBuyProduct().addActionListener(new detailsBuyProductListener(magazyn));
         magazynView.getProductTransactions().addActionListener(new detailsProductTransactionListener(magazyn));
+
+        List<PrzedmiotMagazynEntity> maloPrzedmiotow = new ArrayList<>();
+
+        for(PrzedmiotMagazynEntity przedmiotMagazyn: magazyn.getPrzedmiotyWMagazynie()) {
+            if(przedmiotMagazyn.getIlosc()<5) maloPrzedmiotow.add(przedmiotMagazyn);
+        }
+
+        if(maloPrzedmiotow.size()>0) {
+            magazyn.notifyObservers();
+        }
     }
 
     public void create() {

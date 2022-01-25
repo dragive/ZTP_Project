@@ -267,9 +267,7 @@ public class ProductTransactionController {
 
             MagazynController magazynController = MagazynController.getInstance(frame);
 
-            //MagazynEntity magazyn = magazynController.magazynRepository.getById(magazynProducts.get(magazynProducts.size()-1).getId().getMagazynId());
 
-            //MagazynEntity magazyn = magazynProducts.get(magazynProducts.size()-1).getMagazyn();
 
             //WYKORZYSTANIE PROTOTYPU
             int idx = 0;
@@ -281,16 +279,10 @@ public class ProductTransactionController {
                         przedmiotyWMagazynie.set(idx,temp.clone());
                         PrzedmiotMagazynRepository.builder().sessionFactory(DatabaseService.getInstance().getSessionFactory()).build().update(przedmiotMagazyn);
                         break;
-                        /*przedmiotMagazyn.setMagazyn(temp.getMagazyn());
-                        przedmiotMagazyn.setPrzedmiot(temp.getPrzedmiot());
-                        przedmiotMagazyn.setIlosc(temp.getIlosc());
-                        przedmiotMagazyn.setId(temp.getId());*/
                     }
                 }
                 idx++;
             }
-            /*magazyn.setPrzedmiotyWMagazynie(przedmiotyWMagazynie);
-            MagazynRepository.builder().sessionFactory(DatabaseService.getInstance().getSessionFactory()).build().update(magazyn);*/
 
 
 
