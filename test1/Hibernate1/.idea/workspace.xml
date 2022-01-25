@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Eluwina śpiukolot - metoda fabrykujaca zaimplementowana">
+    <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Eluwina śpiukolot - obserwator w trakcie implementacji, wziąłem i naprawiłem ilości w magazynie">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/IMagazynEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/IMagazynObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/MagazynObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/MagazynPriceChangeObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/MagazynQtyObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/MagazynEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/MagazynEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643067696936</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Eluwina śpiukolot - obserwator w trakcie implementacji, wziąłem i naprawiłem ilości w magazynie">
+      <created>1643072912537</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1643072912537</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -298,7 +310,8 @@
     <MESSAGE value="Ostatnie poprawki w magazynie i transakcji" />
     <MESSAGE value="Eluwina śpiukolot - prototyp zaimplementowany" />
     <MESSAGE value="Eluwina śpiukolot - metoda fabrykujaca zaimplementowana" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eluwina śpiukolot - metoda fabrykujaca zaimplementowana" />
+    <MESSAGE value="Eluwina śpiukolot - obserwator w trakcie implementacji, wziąłem i naprawiłem ilości w magazynie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eluwina śpiukolot - obserwator w trakcie implementacji, wziąłem i naprawiłem ilości w magazynie" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

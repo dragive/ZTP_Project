@@ -3,19 +3,27 @@ package org.example.jpa.entities;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.example.services.IMagazynObserver;
+import org.example.services.MagazynObserver;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Table(name = "MAGAZYN")
 @Entity
 @Getter
 @Setter
 @ToString
-public class MagazynEntity {
+public class MagazynEntity implements IMagazynEntity {
+    private List<MagazynObserver> magazynObservers;
+
+    public MagazynEntity() {
+        magazynObservers = new ArrayList<>();
+    }
+
     @Id
     @Column(name = "MAGAZYN_ID", nullable = false)
     private Long id;
@@ -43,4 +51,24 @@ public class MagazynEntity {
     @JoinColumn(name = "MAGAZYN_ID")
     @ToString.Exclude
     private List<PrzedmiotTransakcjaEntity> transakcje;
+
+    @Override
+    public void attach(MagazynObserver observer) {
+
+    }
+
+    @Override
+    public void detach(MagazynObserver observer) {
+
+    }
+
+    @Override
+    public void notifyObservers() {
+
+    }
+
+    @Override
+    public List<IMagazynObserver> getObservers() {
+        return null;
+    }
 }
