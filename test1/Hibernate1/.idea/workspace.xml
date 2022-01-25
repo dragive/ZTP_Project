@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Eluwina śpiukolot - obserwator zaimplementowany">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/AbortedState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/AcceptedState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/InProgressState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/PaidState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/ReservationState.java" afterDir="false" />
+    <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Eluwina śpiukolot - stan zaimplementowany PRAWIE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/RezerwacjaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/RezerwacjaEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/views/ReservationViews/ReservationSeansView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/views/ReservationViews/ReservationSeansView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ReservationTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ReservationTransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/States/AcceptedState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/AcceptedState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/States/InProgressState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/InProgressState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/States/PaidState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/PaidState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643130984150</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Eluwina śpiukolot - stan zaimplementowany PRAWIE">
+      <created>1643150700067</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1643150700067</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -329,7 +334,8 @@
     <MESSAGE value="Eluwina śpiukolot - obserwator w trakcie implementacji, wziąłem i naprawiłem ilości w magazynie" />
     <MESSAGE value="Eluwina śpiukolot - obserwator w trakcie implementacji v0.2" />
     <MESSAGE value="Eluwina śpiukolot - obserwator zaimplementowany" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eluwina śpiukolot - obserwator zaimplementowany" />
+    <MESSAGE value="Eluwina śpiukolot - stan zaimplementowany PRAWIE" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eluwina śpiukolot - stan zaimplementowany PRAWIE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -338,6 +344,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/jpa/entities/MagazynEntity.java</url>
           <line>70</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ReservationTransactionController.java</url>
+          <line>146</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ReservationTransactionController.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/UserController.java</url>
+          <line>237</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

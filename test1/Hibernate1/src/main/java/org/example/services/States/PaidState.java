@@ -17,8 +17,7 @@ public class PaidState extends ReservationState{
 
     @Override
     public String accept() {
-        reservation.setCzyOplacona(true);
-        return "Potwierdzenie zrobienia frajera w batona";
+        return "Nie obsługuje";
     }
 
     @Override

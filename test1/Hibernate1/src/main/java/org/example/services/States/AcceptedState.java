@@ -21,8 +21,9 @@ public class AcceptedState extends ReservationState{
 
     @Override
     public String pay() {
+        reservation.setCzyOplacona(true);
         reservation.changeState(new PaidState(reservation));
-        return "Płacenie";
+        return "Opłacona";
     }
 
     @Override

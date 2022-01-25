@@ -177,13 +177,14 @@ public class ReservationController {
             rezerwacja.setId(rezerwacjaRepository.getNewId());
             rezerwacja.setDataRezerwacji(LocalDate.now());
 
-            if(MenuPanel.user instanceof PracownikEntity) {
+            /*if(MenuPanel.user instanceof PracownikEntity) {
+                //OPLACONA
                 rezerwacja.getReservationState().pay();
-                rezerwacja.setCzyOplacona(true);
             }
             else {
                 rezerwacja.setCzyOplacona(false);
-            }
+            }*/
+            rezerwacja.setCzyOplacona(false);
             rezerwacja.getReservationFotels();
             rezerwacja.setSeans(seans);
 

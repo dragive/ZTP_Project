@@ -29,7 +29,7 @@ public class InProgressState extends ReservationState{
 
     @Override
     public String progress() {
-        return "Następne siedzenie";
+        return "Nie obsługuje";
     }
 
 }

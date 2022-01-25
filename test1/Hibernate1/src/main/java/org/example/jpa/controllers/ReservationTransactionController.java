@@ -4,6 +4,7 @@ import org.example.jpa.entities.KlientEntity;
 import org.example.jpa.entities.PracownikEntity;
 import org.example.jpa.entities.RezerwacjaEntity;
 import org.example.jpa.entities.RezerwacjaTransakcjaEntity;
+import org.example.jpa.repositories.RezerwacjaRepository;
 import org.example.jpa.repositories.RezerwacjaTranzakcjaRepository;
 import org.example.services.DatabaseService;
 import org.example.ui.views.MenuPanel;
@@ -143,7 +144,7 @@ public class ReservationTransactionController {
             rezerwacjaTransakcja.setRezerwacja(rezerwacja);
             rezerwacjaTranzakcjaRepository.save(rezerwacjaTransakcja);
 
-            rezerwacja.setCzyOplacona(true);
+            rezerwacja.getReservationState().pay();
             ReservationController.getInstance(frame).rezerwacjaRepository.update(rezerwacja);
 
             if(previousWindow.getClass().toString().contains("ReservationSeansView")) {

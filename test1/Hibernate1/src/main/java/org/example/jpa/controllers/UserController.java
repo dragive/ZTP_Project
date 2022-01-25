@@ -5,7 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.jpa.entities.*;
 import org.example.jpa.repositories.KlientRepository;
 import org.example.jpa.repositories.PracownikRepository;
+import org.example.jpa.repositories.RezerwacjaRepository;
 import org.example.services.DatabaseService;
+import org.example.services.States.AcceptedState;
+import org.example.services.States.PaidState;
 import org.example.ui.views.ErrorFrame;
 import org.example.ui.views.MenuPanel;
 import org.example.ui.views.PopUps;
@@ -232,7 +235,8 @@ public class UserController{
         frame.revalidate();
         frame.repaint();
         klientReservation.requestFocus();
-
+        if(rezerwacja.getCzyOplacona()) rezerwacja.changeState(new PaidState(rezerwacja));
+        else rezerwacja.changeState(new AcceptedState(rezerwacja));
         klientReservation.getExit().addActionListener(new reservationExitListener(panelUser,previousWindow));
         klientReservation.getPayment().addActionListener(new reservationPaymentListener(rezerwacja));
     }
