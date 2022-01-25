@@ -1,5 +1,7 @@
 package org.example.jpa.controllers;
 
+import org.example.dto.SalaDTO;
+import org.example.dto.mappers.SalaMapper;
 import org.example.jpa.entities.*;
 import org.example.jpa.repositories.FotelRepository;
 import org.example.jpa.repositories.KinoRepository;
@@ -68,7 +70,10 @@ public class RoomController {
     }
 
     public void details(SalaEntity room) {
-        roomView = new RoomView(room);
+
+        SalaDTO salaDTO = SalaMapper.mapToDTO(room);
+
+        roomView = new RoomView(salaDTO);
         frame.add(roomView, BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
@@ -186,8 +191,11 @@ public class RoomController {
                 newRoomEntity.setCzy3d(addRoomView.getCzy3D().isSelected());
                 newRoomEntity.setNazwa(addRoomView.getRoomName().getText());
                 newRoomEntity.setLiczbaMiejsc(Long.parseLong(addRoomView.getCols().getText())*Long.parseLong(addRoomView.getRows().getText()));
-                newRoomEntity.setLiczbaMiejscWRzedzie(Long.parseLong(addRoomView.getCols().getText()));
+                newRoomEntity.setMiejscWRzedzie(Long.parseLong(addRoomView.getCols().getText()));
                 newRoomEntity.setLiczbaRzedow(Long.parseLong(addRoomView.getRows().getText()));
+                newRoomEntity.setCzyAudio(addRoomView.getCzyLepszyDzwiek().isSelected());
+                newRoomEntity.setCzyLepszeSiedzenia(addRoomView.getCzyLepszeMiejsca().isSelected());
+                newRoomEntity.setCzyNiepelnosprawni(addRoomView.getCzyDlaNiepelnosprawnych().isSelected());
                 newRoomEntity.setFotele(null);
 
                 validateRoomEntity(newRoomEntity);
@@ -197,11 +205,10 @@ public class RoomController {
             catch (Exception ex){
                 PopUps.Error("Wystąpił błąd. Sprawdź czy wprowadzone dane są poprawne!");
             }
-            List<FotelEntity> fotelEntities = new ArrayList<>();
-            
+
 
             //newRoomEntity.setFotele(SeatsController.getInstance(frame).create(newRoomEntity));
-            roomRepository.save(newRoomEntity);
+
             SeatsController.getInstance(frame).create(newRoomEntity);
 
             frame.remove(addRoomView);
@@ -222,7 +229,7 @@ public class RoomController {
     }
 
     public void validateRoomEntity(SalaEntity salaEntity) throws Exception{
-        if(salaEntity.getNazwa().equals("") || salaEntity.getLiczbaMiejscWRzedzie().equals("") || salaEntity.getLiczbaMiejscWRzedzie()<1 || salaEntity.getLiczbaRzedow().equals("") || salaEntity.getLiczbaRzedow()<1){
+        if(salaEntity.getNazwa().equals("") || salaEntity.getMiejscWRzedzie().equals("") || salaEntity.getMiejscWRzedzie()<1 || salaEntity.getLiczbaRzedow().equals("") || salaEntity.getLiczbaRzedow()<1){
             throw new Exception("Wystąpił błąd w formularzu!");
         }
     }

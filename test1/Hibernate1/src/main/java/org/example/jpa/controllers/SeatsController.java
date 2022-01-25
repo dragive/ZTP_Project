@@ -40,7 +40,7 @@ public class SeatsController {
             try {
                 for(long i=0;i<room.getLiczbaRzedow();i++)
                 {
-                    for(long j=0;j<room.getLiczbaMiejscWRzedzie();j++) {
+                    for(long j=0;j<room.getMiejscWRzedzie();j++) {
                         FotelEntity fotelEntity = new FotelEntity();
                         fotelEntity.setId(SeatsController.getInstance(frame).fotelRepository.getNewId());
                         fotelEntity.setNumer(numer++);
