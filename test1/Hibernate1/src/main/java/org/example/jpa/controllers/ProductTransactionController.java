@@ -94,13 +94,8 @@ public class ProductTransactionController {
                     }
                     //WYKORZYSTANIE PROTOTYPU
                     if(!flag) {
-                        PrzedmiotMagazynEntity modifiedProduct = product.clone();
+                        PrzedmiotMagazynEntity modifiedProduct = (PrzedmiotMagazynEntity) product.clone();
                         modifiedProduct.setIlosc(1L);
-                        /*PrzedmiotMagazynEntity modifiedProduct = new PrzedmiotMagazynEntity();
-                        modifiedProduct.setIlosc(1L);
-                        modifiedProduct.setPrzedmiot(product.getPrzedmiot());
-                        modifiedProduct.setMagazyn(product.getMagazyn());
-                        modifiedProduct.setId(product.getId());*/
                         transactionProducts.add(modifiedProduct);
                     }
                     index(transactionProducts,magazynProducts);
@@ -253,7 +248,6 @@ public class ProductTransactionController {
             productTransaction.setKontrahent(kontrahent);
             List<PrzedmiotEntity> products = new ArrayList<>();
             for(PrzedmiotMagazynEntity product: transactionProducts) {
-                /*products.add(product.getPrzedmiot());*/
                 products.add(product.getPrzedmiot().clone());
             }
 
@@ -275,8 +269,8 @@ public class ProductTransactionController {
             for(PrzedmiotMagazynEntity przedmiotMagazyn: przedmiotyWMagazynie) {
                 for(PrzedmiotMagazynEntity temp:magazynProducts) {
                     if(przedmiotMagazyn.getId().equals(temp.getId())) {
-                        przedmiotMagazyn = temp.clone();
-                        przedmiotyWMagazynie.set(idx,temp.clone());
+                        przedmiotMagazyn = (PrzedmiotMagazynEntity) temp.clone();
+                        przedmiotyWMagazynie.set(idx, (PrzedmiotMagazynEntity) temp.clone());
                         PrzedmiotMagazynRepository.builder().sessionFactory(DatabaseService.getInstance().getSessionFactory()).build().update(przedmiotMagazyn);
                         break;
                     }

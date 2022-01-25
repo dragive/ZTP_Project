@@ -74,8 +74,6 @@ public class MagazynController {
     }
 
     public void details(MagazynEntity magazyn) {
-        System.out.println("DUPA");
-
         magazynView = new MagazynView(magazyn);
         frame.add(magazynView, BorderLayout.CENTER);
         frame.revalidate();
@@ -108,7 +106,7 @@ public class MagazynController {
         frame.repaint();
         addMagazynView.requestFocus();
 
-        addMagazynView.getAccept().setEnabled(false);//.addActionListener(new createAcceptListener());
+        addMagazynView.getAccept().setEnabled(false);
         addMagazynView.getExit().addActionListener(new createExitListener());
 
 
@@ -144,7 +142,6 @@ public class MagazynController {
         frame.revalidate();
         frame.repaint();
         editMagazynView.requestFocus();
-//
         editMagazynView.getAccept().addActionListener(new editAcceptListener(entity));
         editMagazynView.getExit().addActionListener(new editExitListener(entity));
 

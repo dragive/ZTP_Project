@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
-public class PrzedmiotMagazynEntity implements Cloneable{
+public class PrzedmiotMagazynEntity implements IPrzedmiotMagazynEntity{
     @EmbeddedId
     private PrzedmiotMagazynEntityId id = new PrzedmiotMagazynEntityId();
 
@@ -36,7 +36,7 @@ public class PrzedmiotMagazynEntity implements Cloneable{
     }
 
     @Override
-    public PrzedmiotMagazynEntity clone() throws CloneNotSupportedException {
+    public IPrzedmiotMagazynEntity clone() {
         return new PrzedmiotMagazynEntity(this);
     }
 }
