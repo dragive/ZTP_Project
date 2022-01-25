@@ -3,6 +3,8 @@ package org.example.jpa.entities;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.example.services.States.InProgressState;
+import org.example.services.States.ReservationState;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -16,6 +18,14 @@ import java.util.Set;
 @Setter
 @ToString
 public class RezerwacjaEntity {
+    @Transient
+    ReservationState reservationState;
+
+    public RezerwacjaEntity() {
+        changeState(new InProgressState(this));
+    }
+
+
     @Id
     @Column(name = "REZERWACJA_ID", nullable = false)
     private Long id;
@@ -45,4 +55,8 @@ public class RezerwacjaEntity {
     @ManyToMany(mappedBy = "fotelReservations",cascade = CascadeType.PERSIST)
     @ToString.Exclude
     private List<FotelEntity> reservationFotels = new ArrayList<>();
+
+    public void changeState(ReservationState reservationState) {
+        this.reservationState = reservationState;
+    }
 }

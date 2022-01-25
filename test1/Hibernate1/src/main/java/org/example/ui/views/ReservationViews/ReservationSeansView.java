@@ -31,10 +31,10 @@ public class ReservationSeansView extends BaseView {
 //        mountPanels();
 
         JPanel wrapper = new JPanel();
-        wrapper.setLayout(new GridLayout(0,cols)/*,BaseViewConstraint.FOOTER*/);
+        wrapper.setLayout(new GridLayout(0,cols));
 
         for(JButton button:fotels){
-            wrapper.add(button/*, BaseViewConstraint.NORTH*/);
+            wrapper.add(button);
         }
 
         this.add(wrapper,BorderLayout.CENTER);

@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Eluwina śpiukolot - obserwator w trakcie implementacji v0.2">
+    <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Eluwina śpiukolot - obserwator zaimplementowany">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/AbortedState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/AcceptedState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/InProgressState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/PaidState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/services/States/ReservationState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/MagazynController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/MagazynController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/IMagazynEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/IMagazynEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/MagazynEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/MagazynEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/IMagazynObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/IMagazynObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/MagazynObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/MagazynObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/MagazynPriceChangeObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/MagazynPriceChangeObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/MagazynQtyObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/MagazynQtyObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/RezerwacjaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/RezerwacjaEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/views/ReservationViews/ReservationSeansView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/views/ReservationViews/ReservationSeansView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643073834498</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Eluwina śpiukolot - obserwator zaimplementowany">
+      <created>1643130984150</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1643130984150</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -294,7 +301,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="obserwator" />
+                        <option value="stan" />
                       </list>
                     </value>
                   </entry>
@@ -321,7 +328,8 @@
     <MESSAGE value="Eluwina śpiukolot - metoda fabrykujaca zaimplementowana" />
     <MESSAGE value="Eluwina śpiukolot - obserwator w trakcie implementacji, wziąłem i naprawiłem ilości w magazynie" />
     <MESSAGE value="Eluwina śpiukolot - obserwator w trakcie implementacji v0.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eluwina śpiukolot - obserwator w trakcie implementacji v0.2" />
+    <MESSAGE value="Eluwina śpiukolot - obserwator zaimplementowany" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eluwina śpiukolot - obserwator zaimplementowany" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

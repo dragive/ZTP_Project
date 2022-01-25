@@ -65,6 +65,7 @@ public class ReservationController {
         reservationCinemaListView.requestFocus();
     }
 
+
     public void seansList(KinoEntity kinoEntity) {
         List<SalaEntity> salaEntities = CinemaController.getInstance(frame).kinoRepository.getById(kinoEntity.getId()).getSale();
         List<SeansEntity> seansEntities = new ArrayList<>();
@@ -82,6 +83,7 @@ public class ReservationController {
         reservationSeansListView.getExit().addActionListener(new seansListExitListener(kinoEntity));
     }
 
+    //tu sie zaczyna
     public void seatsList(SeansEntity seans, int cols) {
         //lists
         List<JButton> seats = new ArrayList<>();
@@ -94,6 +96,8 @@ public class ReservationController {
         Color yellow = new Color(249,215,28);
 
         RezerwacjaFotelRepository rezerwacjaFotelRepository = RezerwacjaFotelRepository.builder().sessionFactory(DatabaseService.getInstance().getSessionFactory()).build();
+        //TUTAJ TWORZYMY REZERWACJE - STAN IN PROGRESS
+        RezerwacjaEntity rezerwacja = new RezerwacjaEntity();
 
         for(FotelEntity fotelEntity:fotelEntityList) {
             JButton tempBtn = new JButton();
@@ -108,7 +112,7 @@ public class ReservationController {
                     break;
                 }
             }
-            if(flag==false) {
+            if(!flag) {
                 tempBtn.setBackground(green);
                 tempBtn.setOpaque(true);
             }
@@ -136,31 +140,8 @@ public class ReservationController {
         frame.repaint();
         reservationSeansView.requestFocus();
 
-        reservationSeansView.getAccept().addActionListener(new seatListAcceptListener(seans,fotelEntityListForReservation));
-        reservationSeansView.getExit().addActionListener(new seatListExitListener(seans));
-    }
-
-    public void details(SeansEntity seans) {
-    }
-
-    public void create(SalaEntity room) {
-    }
-
-    public void seatsList(SeansEntity seans, ActionListener actionListener, int intValue) {
-    }
-
-    private class indexExitListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        }
-    }
-
-    private class indexAddReservationListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        }
+        reservationSeansView.getAccept().addActionListener(new seatListAcceptListener(seans,fotelEntityListForReservation,rezerwacja));
+        reservationSeansView.getExit().addActionListener(new seatListExitListener(seans,rezerwacja));
     }
 
     private class seansListExitListener implements ActionListener {
@@ -179,21 +160,25 @@ public class ReservationController {
     private class seatListAcceptListener implements ActionListener {
         SeansEntity seans;
         List<FotelEntity> fotelEntityList;
-        public seatListAcceptListener(SeansEntity seans, List<FotelEntity> fotelEntityList) {
+        RezerwacjaEntity rezerwacja;
+        public seatListAcceptListener(SeansEntity seans, List<FotelEntity> fotelEntityList, RezerwacjaEntity rezerwacja) {
             this.seans=seans;
             this.fotelEntityList=fotelEntityList;
+            this.rezerwacja=rezerwacja;
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            //REZERWACJA ZAAKCEPTOWANA
+            rezerwacja.getReservationState().accept();
 
             //start
-            RezerwacjaEntity rezerwacja = new RezerwacjaEntity();
             rezerwacja.setKlient(null);
             rezerwacja.setId(rezerwacjaRepository.getNewId());
             rezerwacja.setDataRezerwacji(LocalDate.now());
 
             if(MenuPanel.user instanceof PracownikEntity) {
+                rezerwacja.getReservationState().pay();
                 rezerwacja.setCzyOplacona(true);
             }
             else {
@@ -298,14 +283,65 @@ public class ReservationController {
 
     private class seatListExitListener implements ActionListener {
         SeansEntity seans;
-        public seatListExitListener(SeansEntity seans) {
+        RezerwacjaEntity rezerwacja;
+
+        public seatListExitListener(SeansEntity seans,RezerwacjaEntity rezerwacja) {
             this.seans=seans;
+            this.rezerwacja = rezerwacja;
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            frame.remove(reservationSeansView);
-            seansList(seans.getSala().getKino());
+            rezerwacja.getReservationState().abort();
+            warnPopUp(seans,rezerwacja);
         }
+    }
+
+
+    public void warnPopUp(SeansEntity seans,RezerwacjaEntity rezerwacja) {
+        JDialog jDialog =new JDialog(frame,"Zakończ");
+        JPanel panelContainer = new JPanel(new BorderLayout());
+
+        JPanel panel = new JPanel(new GridLayout(0,1));
+        panelContainer.add(panel,BorderLayout.CENTER);
+
+        JLabel jLabel = new JLabel("Czy na pewno chcesz anulować rezerwację?");
+
+        JButton submit = new JButton("Tak");
+        JButton cancel = new JButton("Wstecz");
+
+        panel.add(jLabel);
+        panel.add(new JLabel(""));
+
+        JPanel buttons = new JPanel();
+        buttons.add(submit);
+        buttons.add(cancel);
+        panel.add(buttons);
+
+        panel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+        jDialog.add(panelContainer);
+
+        jDialog.setVisible(true);
+        jDialog.requestFocus();
+        jDialog.setSize(340,200);
+        jDialog.setLocationRelativeTo(null);
+
+        cancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jDialog.setVisible(false);
+                rezerwacja.getReservationState().progress();
+            }
+        });
+
+        submit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rezerwacja.getReservationState().abort();
+                jDialog.setVisible(false);
+                frame.remove(reservationSeansView);
+                seansList(seans.getSala().getKino());
+            }
+        });
     }
 }
