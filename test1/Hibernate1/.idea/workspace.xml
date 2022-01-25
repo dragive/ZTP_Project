@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Eluwina śpiukolot - prototyp zaimplementowany">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Colors/BackgroundColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Colors/LinuxColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Colors/MacOSColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Colors/WindowsColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Frames/LinuxFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Frames/MacOSFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Frames/WindowsFrame.java" afterDir="false" />
+    <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Eluwina śpiukolot - metoda fabrykujaca zaimplementowana">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Frames/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/views/UserViews/KlientLoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/views/UserViews/KlientLoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643066242397</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Eluwina śpiukolot - metoda fabrykujaca zaimplementowana">
+      <created>1643067696936</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1643067696936</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -275,7 +273,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="metoda_fabrykujaca" />
+                        <option value="obserwator" />
                       </list>
                     </value>
                   </entry>
@@ -299,28 +297,22 @@
     <MESSAGE value="PrzedmiotTransakcjaEntity poprawka relacji z kontrahentem" />
     <MESSAGE value="Ostatnie poprawki w magazynie i transakcji" />
     <MESSAGE value="Eluwina śpiukolot - prototyp zaimplementowany" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eluwina śpiukolot - prototyp zaimplementowany" />
+    <MESSAGE value="Eluwina śpiukolot - metoda fabrykujaca zaimplementowana" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eluwina śpiukolot - metoda fabrykujaca zaimplementowana" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java</url>
-          <line>102</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.example.jpa.entities.RezerwacjaEntity" memberName="klient" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="przedmiotyWMagazynie.get(0)" language="JAVA" />
+        <watch expression="przedmiotyWMagazynie" language="JAVA" />
+        <watch expression="magazyn.przedmiotyWMagazynie.get(0).magazyn.przedmiotyWMagazynie.get(0).ilosc" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

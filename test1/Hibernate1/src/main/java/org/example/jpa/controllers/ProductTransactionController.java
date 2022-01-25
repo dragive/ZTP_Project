@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 import org.example.jpa.entities.*;
 import org.example.jpa.repositories.MagazynRepository;
 import org.example.jpa.repositories.ProductTransactionRepository;
+import org.example.jpa.repositories.PrzedmiotMagazynRepository;
 import org.example.services.DatabaseService;
 import org.example.ui.views.MagazynViews.MagazynItemsView;
 import org.example.ui.views.MenuPanel;
@@ -271,20 +272,27 @@ public class ProductTransactionController {
             //MagazynEntity magazyn = magazynProducts.get(magazynProducts.size()-1).getMagazyn();
 
             //WYKORZYSTANIE PROTOTYPU
+            int idx = 0;
             List<PrzedmiotMagazynEntity> przedmiotyWMagazynie = magazyn.getPrzedmiotyWMagazynie();
             for(PrzedmiotMagazynEntity przedmiotMagazyn: przedmiotyWMagazynie) {
                 for(PrzedmiotMagazynEntity temp:magazynProducts) {
                     if(przedmiotMagazyn.getId().equals(temp.getId())) {
                         przedmiotMagazyn = temp.clone();
+                        przedmiotyWMagazynie.set(idx,temp.clone());
+                        PrzedmiotMagazynRepository.builder().sessionFactory(DatabaseService.getInstance().getSessionFactory()).build().update(przedmiotMagazyn);
+                        break;
                         /*przedmiotMagazyn.setMagazyn(temp.getMagazyn());
                         przedmiotMagazyn.setPrzedmiot(temp.getPrzedmiot());
                         przedmiotMagazyn.setIlosc(temp.getIlosc());
                         przedmiotMagazyn.setId(temp.getId());*/
                     }
                 }
+                idx++;
             }
-            magazyn.setPrzedmiotyWMagazynie(przedmiotyWMagazynie);
-            MagazynRepository.builder().sessionFactory(DatabaseService.getInstance().getSessionFactory()).build().update(magazyn);
+            /*magazyn.setPrzedmiotyWMagazynie(przedmiotyWMagazynie);
+            MagazynRepository.builder().sessionFactory(DatabaseService.getInstance().getSessionFactory()).build().update(magazyn);*/
+
+
 
             frame.remove(addProductTransactionView);
             magazynController.details(magazyn);
