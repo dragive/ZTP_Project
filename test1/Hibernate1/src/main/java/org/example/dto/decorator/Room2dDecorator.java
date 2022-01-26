@@ -10,10 +10,11 @@ import org.example.dto.interfaces.ISala;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Room2dDecorator implements ISala {
+public class Room2dDecorator extends RoomDecorator {
   private ISala iSala;
 
   public Room2dDecorator(ISala iSala) {
+    super();
     this.iSala = iSala;
   }
 

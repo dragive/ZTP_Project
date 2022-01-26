@@ -9,7 +9,7 @@ import org.example.dto.interfaces.ISala;
 @Getter
 @Setter
 @NoArgsConstructor
-public class RoomSurroundingAudioDecorator implements ISala {
+public class RoomSurroundingAudioDecorator extends RoomDecorator {
   private ISala iSala;
   public RoomSurroundingAudioDecorator(ISala iSala){
     this.iSala = iSala;

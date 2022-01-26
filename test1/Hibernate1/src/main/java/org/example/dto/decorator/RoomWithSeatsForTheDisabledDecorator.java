@@ -9,7 +9,7 @@ import org.example.dto.interfaces.ISala;
 @Getter
 @Setter
 @NoArgsConstructor
-public class RoomWithSeatsForTheDisabledDecorator implements ISala {
+public class RoomWithSeatsForTheDisabledDecorator extends RoomDecorator {
   private ISala iSala;
   public RoomWithSeatsForTheDisabledDecorator(ISala iSala){
     this.iSala = iSala;

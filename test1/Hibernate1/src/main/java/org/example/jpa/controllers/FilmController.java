@@ -264,7 +264,7 @@ public class FilmController {
                 newFilmEntity.setId(filmRepository.getNewId());
                 newFilmEntity.setSeansEntities(null);
 
-                validateFilmEntity(newFilmEntity);
+                //validateFilmEntity(newFilmEntity);
 
                 filmRepository.save(newFilmEntity);
 

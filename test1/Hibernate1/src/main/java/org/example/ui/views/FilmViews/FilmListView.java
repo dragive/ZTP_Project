@@ -23,7 +23,7 @@ import java.util.List;
 public class FilmListView extends BaseView {
   JButton addFilm = new JButton("Dodaj film");
   JLabel message = new JLabel("Wybierz film z listy:");
-  JButton jButtonDefaultStrategy = new JButton("Bez zminan");
+  JButton jButtonDefaultStrategy = new JButton("Bez zmian");
   JButton jButtonTitleASCStrategy = new JButton("Tytuł rosnąco");
   JButton jButtonTitleDESCStrategy = new JButton("Tytuł malejąco");
 

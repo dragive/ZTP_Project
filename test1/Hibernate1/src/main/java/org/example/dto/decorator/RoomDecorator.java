@@ -12,6 +12,11 @@ public abstract class RoomDecorator implements ISala {
   public RoomDecorator(ISala iSala){
     this.iSala = iSala;
   }
+
+  public RoomDecorator() {
+
+  }
+
   @Override
   public String getDescription(){
     return "Room Decorator " + iSala.getDescription();
