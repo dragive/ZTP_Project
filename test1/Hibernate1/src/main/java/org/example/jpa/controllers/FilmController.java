@@ -1,14 +1,15 @@
 package org.example.jpa.controllers;
 
+import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.example.jpa.DefaultFilmSortingStrategy;
+import org.example.jpa.FilmSortingStrategy;
+import org.example.jpa.TitleAscendingSortingStrategy;
+import org.example.jpa.TitleDescendingSortingStrategy;
 import org.example.jpa.entities.FilmEntity;
-import org.example.jpa.entities.KinoEntity;
 import org.example.jpa.repositories.FilmRepository;
 import org.example.services.DatabaseService;
-import org.example.ui.views.CinemaViews.AddCinemaView;
-import org.example.ui.views.CinemaViews.CinemaListView;
-import org.example.ui.views.CinemaViews.CinemaView;
 import org.example.ui.views.ErrorFrame;
 import org.example.ui.views.FilmViews.AddFilmView;
 import org.example.ui.views.FilmViews.EditFilmView;
@@ -16,17 +17,15 @@ import org.example.ui.views.FilmViews.FilmListView;
 import org.example.ui.views.FilmViews.FilmView;
 import org.example.ui.views.PopUps;
 import org.hibernate.SessionFactory;
+import org.openjdk.tools.sjavac.Log;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 
 @Slf4j
 public class FilmController {
@@ -34,17 +33,18 @@ public class FilmController {
 
     private static final String DATE_FORMAT = "dd-MM-yyyy";
 
+
+    FilmSortingStrategy filmSortingStrategy;
+
     FilmRepository filmRepository;
 
     //views
+    @Getter
     FilmListView filmListView;
     AddFilmView addFilmView;
     FilmView filmView;
     EditFilmView editFilmView;
-    
 
-    //models
-    FilmEntity filmEntity;
 
     JFrame frame;
 
@@ -61,13 +61,28 @@ public class FilmController {
 
     public void index() {
         List<FilmEntity> filmEntityList = filmRepository.getAll();
+
+
         filmListView = new FilmListView(filmEntityList);
+
+       if(filmSortingStrategy == null){
+         filmSortingStrategy = new DefaultFilmSortingStrategy(this);
+       }
+       else{
+         Log.info("była strategia: "+filmSortingStrategy);
+       }
+      Log.info("filmSordingStrategy" + filmSortingStrategy);
+        sortFilmListView();
+        filmListView.paint();
         frame.add(filmListView, BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
         filmListView.requestFocus();
-
+        filmListView.getJButtonDefaultStrategy().addActionListener(new indexDefaultSortFilmListener(this));
+        filmListView.getJButtonTitleASCStrategy().addActionListener(new indexTitleASCSortFilmListener(this));
+        filmListView.getJButtonTitleDESCStrategy().addActionListener(new indexTitleDESCSortFilmListener(this));
         filmListView.getAddFilm().addActionListener(new indexAddFilmListener());
+
     }
 
     public void details(FilmEntity film) {
@@ -127,6 +142,56 @@ public class FilmController {
             create();
         }
     }
+
+    private class indexDefaultSortFilmListener implements ActionListener {
+
+      private FilmController filmController;
+      public indexDefaultSortFilmListener(FilmController filmController){
+        this.filmController = filmController;
+      }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            filmController.filmSortingStrategy = new DefaultFilmSortingStrategy(filmController);
+
+            frame.remove(filmListView);
+            index();
+        }
+    }
+
+
+  private class indexTitleASCSortFilmListener implements ActionListener {
+
+    private FilmController filmController;
+    public indexTitleASCSortFilmListener(FilmController filmController){
+      this.filmController = filmController;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      filmController.filmSortingStrategy = new TitleAscendingSortingStrategy(filmController);
+
+
+      frame.remove(filmListView);
+      index();
+    }
+  }
+  private class indexTitleDESCSortFilmListener implements ActionListener {
+
+    private FilmController filmController;
+    public indexTitleDESCSortFilmListener(FilmController filmController){
+      this.filmController = filmController;
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      filmController.filmSortingStrategy = new TitleDescendingSortingStrategy(filmController);
+
+      frame.remove(filmListView);
+      index();
+    }
+  }
 
     //details
 
@@ -255,9 +320,16 @@ public class FilmController {
         }
     }
 
+
+
     public void validateFilmEntity(FilmEntity newFilmEntity) throws Exception{
         if(newFilmEntity.getTitle().equals("") || newFilmEntity.getOpis().equals("") || newFilmEntity.getCzasTrwania().equals("") || newFilmEntity.getCzasTrwania()>0 || newFilmEntity.getWiek().equals("") || newFilmEntity.getWiek()>1 || newFilmEntity.getDataWydania().equals("")){
             throw new Exception("Wystąpił błąd w formularzu!");
         }
     }
+
+  private void sortFilmListView(){
+      this.filmSortingStrategy.sort();
+  }
+
 }
