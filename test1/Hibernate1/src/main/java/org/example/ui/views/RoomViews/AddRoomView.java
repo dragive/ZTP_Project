@@ -23,6 +23,15 @@ public class AddRoomView extends BaseView {
     JLabel czy3DText = new JLabel("Sala obsługuje technologię 3D");
     JCheckBox czy3D = new JCheckBox();
 
+    JLabel czyLepszyDzwiekText = new JLabel("Sala posiada lepsze nagłośnienie");
+    JCheckBox czyLepszyDzwiek = new JCheckBox();
+
+    JLabel czyLepszeMiejscaText = new JLabel("Sala posiada miejca wyższego standardu");
+    JCheckBox czyLepszeMiejsca = new JCheckBox();
+
+    JLabel czyDlaNiepelnosprawnychText = new JLabel("Sala została przystosowana dla osób niepełnosprawnych");
+    JCheckBox czyDlaNiepelnosprawnych = new JCheckBox();
+
     JButton accept = new JButton("Zaakceptuj");
     JButton exit = new JButton("Wstecz");
 
@@ -41,6 +50,15 @@ public class AddRoomView extends BaseView {
 
         this.add(czy3DText,BaseViewConstraint.CENTER);
         this.add(czy3D,BaseViewConstraint.CENTER);
+
+        this.add(czyLepszeMiejscaText,BaseViewConstraint.CENTER);
+        this.add(czyLepszeMiejsca,BaseViewConstraint.CENTER);
+
+        this.add(czyLepszyDzwiekText,BaseViewConstraint.CENTER);
+        this.add(czyLepszyDzwiek,BaseViewConstraint.CENTER);
+
+        this.add(czyDlaNiepelnosprawnychText,BaseViewConstraint.CENTER);
+        this.add(czyDlaNiepelnosprawnych,BaseViewConstraint.CENTER);
 
         setLayout(new GridLayout(0,2),BaseViewConstraint.FOOTER);
 

@@ -40,7 +40,7 @@ public class ReservationSeansListView extends BaseView {
                 public void actionPerformed(ActionEvent e) {
                     JFrame frame = (JFrame) SwingUtilities.windowForComponent(mainContainerPanel);
                     frame.remove(mainContainerPanel);
-                    ReservationController.getInstance(frame).seatsList(seans,seans.getSala().getLiczbaMiejscWRzedzie().intValue());
+                    ReservationController.getInstance(frame).seatsList(seans,seans.getSala().getMiejscWRzedzie().intValue());
 
                     //frame.setTitle("Podgląd sali");
                 }
