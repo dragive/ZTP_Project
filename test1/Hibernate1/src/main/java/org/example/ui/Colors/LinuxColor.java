@@ -14,6 +14,6 @@ public class LinuxColor implements BackgroundColor {
     @Override
     public void pickBackgroundColor() {
         color = new Color(254,216,177);
-        frame.setBackground(color);
+        frame.getContentPane().setBackground(color);
     }
 }

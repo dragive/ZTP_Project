@@ -11,7 +11,7 @@ public class PaidState extends ReservationState{
     @Override
     public String abort() {
         reservation.setCzyOplacona(false);
-        reservation.changeState(new InProgressState(reservation));
+        reservation.changeState(new AcceptedState(reservation));
         return "Cofanie transakcji";
     }
 

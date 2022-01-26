@@ -14,6 +14,6 @@ public class MacOSColor implements BackgroundColor {
     @Override
     public void pickBackgroundColor() {
         color = new Color(211, 211, 211);
-        frame.setBackground(color);
+        frame.getContentPane().setBackground(color);
     }
 }
