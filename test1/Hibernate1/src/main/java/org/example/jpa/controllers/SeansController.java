@@ -258,7 +258,7 @@ public class SeansController {
                 List<SeansEntity> seansEntities = room.getSeanse();
                 seansEntities.add(seans);
 
-                validateSeansController(seans);
+                //validateSeansController(seans);
 
                 room.setSeanse(seansEntities);
                 RoomController.getInstance(frame).roomRepository.update(room);

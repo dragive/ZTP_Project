@@ -186,7 +186,7 @@ public class KontrahentController {
                 // niepotrzebna deklaracja bo jest edycja tylko
                 //                newKontrahentEntity.setId(kontrahentRepository.getNewId());
 
-                validateKontrahentEntity(newKontrahentEntity);
+                //validateKontrahentEntity(newKontrahentEntity);
 
                 kontrahentRepository.update(newKontrahentEntity);
 

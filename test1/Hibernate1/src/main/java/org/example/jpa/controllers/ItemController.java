@@ -227,7 +227,7 @@ public class ItemController {
                 przedmiotEntity1.setProducent(editPrzedmiotView.getProductProducentField().getText());
                 przedmiotEntity1.setDataWaznosci(LocalDateTime.parse(editPrzedmiotView.getProductDateField().getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) );
 
-                validateItemEntity(przedmiotEntity1);
+                //validateItemEntity(przedmiotEntity1);
 
                 przedmiotRepository.update(przedmiotEntity1);
 

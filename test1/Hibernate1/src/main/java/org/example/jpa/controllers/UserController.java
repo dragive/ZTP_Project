@@ -310,7 +310,7 @@ public class UserController{
                 newKlient.setEmail(registerView.getEmail().getText());
                 newKlient.setAdres(registerView.getAddress().getText());
 
-                validateUserEntity(newKlient);
+                //validateUserEntity(newKlient);
 
                 klientRepository.save(newKlient);
             }
@@ -422,7 +422,7 @@ public class UserController{
                     updatedKlientEntity.setImie(editUserView.getFirstName().getText());
                     updatedKlientEntity.setNazwisko(editUserView.getSurname().getText());
 
-                    validateUserEntity(updatedKlientEntity);
+                    //validateUserEntity(updatedKlientEntity);
 
                     klientRepository.update(updatedKlientEntity);
 
@@ -435,7 +435,7 @@ public class UserController{
                     updatedPracownikEntity.setNazwisko(editUserView.getSurname().getText());
                     updatedPracownikEntity.setRodzajUmowy(editUserView.getJobType().getText());
 
-                    validateEmplEntity(updatedPracownikEntity);
+                    //validateEmplEntity(updatedPracownikEntity);
 
                     pracownikRepository.update(updatedPracownikEntity);
                 }
@@ -540,7 +540,7 @@ public class UserController{
             klient.setHaslo(addKlientView.getPassword().getText());
             klient.setNrTelefonu(addKlientView.getPhone().getText());
 
-            validateUserEntity(klient);
+            //validateUserEntity(klient);
 
             klientRepository.save(klient);
 
@@ -588,7 +588,7 @@ public class UserController{
             pracownik.setCzyKierownik(addPracownikView.getCheckBox().isSelected());
             pracownik.setKino(kino);
 
-            validateEmplEntity(pracownik);
+            //validateEmplEntity(pracownik);
 
             pracownikRepository.save(pracownik);
 

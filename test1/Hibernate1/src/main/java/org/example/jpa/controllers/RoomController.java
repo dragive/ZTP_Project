@@ -198,7 +198,7 @@ public class RoomController {
                 newRoomEntity.setCzyNiepelnosprawni(addRoomView.getCzyDlaNiepelnosprawnych().isSelected());
                 newRoomEntity.setFotele(null);
 
-                validateRoomEntity(newRoomEntity);
+                //validateRoomEntity(newRoomEntity);
 
                 roomRepository.save(newRoomEntity);
             }

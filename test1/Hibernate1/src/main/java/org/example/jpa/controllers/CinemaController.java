@@ -140,7 +140,7 @@ public class CinemaController {
                 kinoEntity.setMagazyny(null);
                 kinoEntity.setSale(null);
 
-                validateCinemaEntity(kinoEntity);
+                //CinemaEntity(kinoEntity);
 
                 kinoRepository.save(kinoEntity);
             }

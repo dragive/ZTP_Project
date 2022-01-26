@@ -259,7 +259,7 @@ public class MagazynController {
                 newMagazynEntity.setPrzedmiotyWMagazynie(null);
                 newMagazynEntity.setId(magazynRepository.getNewId());
 
-                validateMagazynEntity(newMagazynEntity);
+                //validateMagazynEntity(newMagazynEntity);
 
                 magazynRepository.save(newMagazynEntity);
                 log.error(newMagazynEntity.toString());
@@ -361,7 +361,7 @@ public class MagazynController {
 //                newMagazynEntity.setId(magazynRepository.getNewId());
 //                newMagazynEntity.setKino(null);
 
-                validateMagazynEntity(newMagazynEntity);
+                //validateMagazynEntity(newMagazynEntity);
 
                 magazynRepository.update(newMagazynEntity);
 
