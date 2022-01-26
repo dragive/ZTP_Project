@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public abstract class DataBaseRepository<T> {
+public abstract class DataBaseRepository<T> implements IDataRepository<T> {
         protected EntityManager entityManager;
         protected SessionFactory sessionFactory;
         @Getter
