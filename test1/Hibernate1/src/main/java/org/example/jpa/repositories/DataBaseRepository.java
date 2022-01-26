@@ -51,7 +51,7 @@ public abstract class DataBaseRepository<T> implements IDataRepository<T> {
     return ret;
   }
 
-  @Override
+
   public T getByName(String name) {
     try {
       String hql = "FROM " + tClass.getName() + " E WHERE E.name LIKE '" + name + "'";
