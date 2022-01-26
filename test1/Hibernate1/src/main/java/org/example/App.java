@@ -14,7 +14,6 @@ import org.example.dto.decorator.RoomSurroundingAudioDecorator;
 import org.example.dto.decorator.RoomWithBetterSeatsDecorator;
 import org.example.dto.decorator.RoomWithSeatsForTheDisabledDecorator;
 import org.example.dto.interfaces.ISala;
-import org.example.ui.MainFrame;
 
 import javax.swing.*;
 

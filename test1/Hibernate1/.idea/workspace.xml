@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Eluwina śpiukolot - stan zaimplementowany">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/IPrzedmiotMagazynEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/MagazynController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/MagazynController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ProductTransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/PrzedmiotMagazynEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/entities/PrzedmiotMagazynEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/FilmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/FilmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
