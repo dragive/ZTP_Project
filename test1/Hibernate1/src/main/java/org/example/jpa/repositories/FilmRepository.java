@@ -20,15 +20,4 @@ public final class FilmRepository extends DataBaseRepository<FilmEntity>{
        super(FilmEntity.class,sessionFactory);
 
     }
-
-    /*public List<SeansEntity> getFilmSeanses(Long id){
-        Session session= sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-
-        List ret = this.getById(id).getSeansEntities();
-
-        transaction.commit();
-        session.close();
-        return ret;
-    }*/
 }

@@ -3,6 +3,7 @@ package org.example.jpa.controllers;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.example.jpa.entities.*;
+import org.example.jpa.repositories.KinoRepository;
 import org.example.jpa.repositories.KlientRepository;
 import org.example.jpa.repositories.PracownikRepository;
 import org.example.jpa.repositories.RezerwacjaRepository;
@@ -204,7 +205,7 @@ public class UserController{
 
     public void reservations(User panelUser) {
         KlientEntity klient = (KlientEntity) panelUser;
-
+        //KlientEntity klient2 = KlientRepository.builder().sessionFactory(DatabaseService.getInstance().getSessionFactory()).build().getById(klient.getId());
         List<RezerwacjaEntity> rezerwacjaEntityList = klient.getRezerwacje();
         List<JButton> buttonList = new ArrayList<>();
         for(RezerwacjaEntity rezerwacja: rezerwacjaEntityList) {

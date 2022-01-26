@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Eluwina śpiukolot - poprawki leciutkie metoda fabrykujaca">
+    <list default="true" id="e74b037d-f4df-414d-9dd0-61fb157286d1" name="Changes" comment="Eluwina śpiukolot - zakomentowanie walidacji">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/CinemaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/CinemaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/KontrahentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/KontrahentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/MagazynController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/MagazynController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/SeansController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/SeansController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jpa/repositories/FilmRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jpa/repositories/FilmRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643180442488</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Eluwina śpiukolot - zakomentowanie walidacji">
+      <created>1643183209359</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1643183209359</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -368,7 +370,8 @@
     <MESSAGE value="Eluwina śpiukolot - poprawki dalej" />
     <MESSAGE value="Eluwina śpiukolot - poprawki leciutkie dekoratora" />
     <MESSAGE value="Eluwina śpiukolot - poprawki leciutkie metoda fabrykujaca" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eluwina śpiukolot - poprawki leciutkie metoda fabrykujaca" />
+    <MESSAGE value="Eluwina śpiukolot - zakomentowanie walidacji" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eluwina śpiukolot - zakomentowanie walidacji" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
