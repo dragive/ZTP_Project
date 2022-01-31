@@ -3,8 +3,10 @@ package org.example.ui.views.FilmViews;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.jpa.entities.FilmEntity;
+import org.example.jpa.entities.PracownikEntity;
 import org.example.ui.views.BaseView;
 import org.example.ui.views.BaseViewConstraint;
+import org.example.ui.views.MenuPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,7 +46,7 @@ public class FilmView extends BaseView {
     JButton exit = new JButton("Wstecz");
 
     public FilmView(FilmEntity filmEntity) {
-        super(new GridLayout(0,2));
+        super(new GridLayout(0, 2));
 
         title = new JLabel(filmEntity.getTitle());
         opis = new JLabel(filmEntity.getOpis());
@@ -61,7 +63,7 @@ public class FilmView extends BaseView {
         czyOriginal.setEnabled(false);
 
         mountPanels();
-        setLayout(new GridLayout(0,2), BaseViewConstraint.CENTER);
+        setLayout(new GridLayout(0, 2), BaseViewConstraint.CENTER);
 
         this.add(titleText, BaseViewConstraint.CENTER);
         this.add(title, BaseViewConstraint.CENTER);
@@ -90,10 +92,20 @@ public class FilmView extends BaseView {
         this.add(czyOriginalText, BaseViewConstraint.CENTER);
         this.add(czyOriginal, BaseViewConstraint.CENTER);
 
-        setLayout(new GridLayout(0,3),BaseViewConstraint.FOOTER);
 
-        this.add(edit,BaseViewConstraint.FOOTER);
-        this.add(delete,BaseViewConstraint.FOOTER);
-        this.add(exit,BaseViewConstraint.FOOTER);
-    }
+        if (MenuPanel.user instanceof PracownikEntity) {
+            setLayout(new GridLayout(0, 3), BaseViewConstraint.FOOTER);
+
+            this.add(edit, BaseViewConstraint.FOOTER);
+            this.add(delete, BaseViewConstraint.FOOTER);
+
+            this.add(exit, BaseViewConstraint.FOOTER);
+        }
+        else {
+            setLayout(new GridLayout(0, 1), BaseViewConstraint.FOOTER);
+
+            this.add(exit, BaseViewConstraint.FOOTER);
+        }
+
+        }
 }

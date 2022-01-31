@@ -1,6 +1,7 @@
 package org.example.jpa.controllers;
 
 import lombok.SneakyThrows;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.example.jpa.entities.*;
 import org.example.jpa.repositories.KinoRepository;
@@ -619,6 +620,7 @@ public class UserController{
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            log.info("detailsReservationsListener");
             frame.remove(userView);
             reservations(panelUser);
         }
